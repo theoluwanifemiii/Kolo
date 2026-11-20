@@ -1,0 +1,56 @@
+/* Kolo tokens as CSS variables, from the Kolo design system's tokens.json. bundle.css reads these. */
+:root {
+  --ink: #14183a;
+  --ink-muted: #4b4f6b;
+  --surface: #fff8ec;
+  --surface-raised: #ffffff;
+  --surface-sunk: #f6ecd9;
+  --line: #e6dac4;
+  --blue: #1d44cc;
+  --blue-deep: #122e8f;
+  --blue-soft: #dce4ff;
+  --on-blue: #ffffff;
+  --orange: #f26a1b;
+  --orange-ink: #b0430a;
+  --orange-soft: #ffe2cf;
+  --sun: #ffc633;
+  --sun-soft: #fff0c2;
+  --green: #1f9d57;
+  --green-ink: #0e6b39;
+  --green-soft: #d4f2df;
+  --red: #c42a1e;
+  --red-soft: #fde1dd;
+  --lilac: #e9e2ff;
+  --skin-deep: #5a3522;
+  --skin-mid: #8b5634;
+  --skin-light: #b47549;
+  --skin-shade: #3d2316;
+
+  --font-display: "Bricolage Grotesque", "Lexend", system-ui, sans-serif;
+  --font-text: "Lexend", system-ui, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-pop: 0 4px 0 #14183a;
+  --shadow-pop-sm: 0 2px 0 #14183a;
+  --shadow-none: none;
+
+  --tap-min: 56px;
+  --tap-key: 72px;
+  --icon-md: 28px;
+  --icon-lg: 40px;
+  --avatar: 48px;
+  --stroke: 2px;
+}

@@ -1,0 +1,39 @@
+/* App-level layout on top of the Kolo v1 tokens + bundle. Component looks come from bundle-v1.css. */
+a { color: var(--blue); }
+a:hover { color: var(--blue-deep); }
+
+.kolo-screen {
+  max-width: 390px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-text);
+}
+
+.kolo-muted { color: var(--ink-muted); }
+
+.kolo-progress {
+  flex: 1;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  border: var(--stroke) solid var(--ink);
+  background: var(--surface-sunk);
+}
+.kolo-progress.is-done { background: var(--blue); }
+
+
+
+.kolo-pin-dot {
+  width: 56px;
+  height: 56px;
+  box-sizing: border-box;
+  border-radius: var(--radius-pill);
+  border: var(--stroke) solid var(--ink);
+  background: var(--surface-raised);
+}
+.kolo-pin-dot.is-filled { background: var(--blue); box-shadow: var(--shadow-pop-sm); }

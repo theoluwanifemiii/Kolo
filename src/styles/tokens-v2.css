@@ -1,0 +1,62 @@
+/* Kolo v2 tokens as CSS variables, from the Kolo design system's tokens.json (version 2). ds/kolo/components/bundle.css reads these. */
+:root {
+  --ink: #14183a;
+  --ink-muted: #5b6070;
+  --ink-subtle: #8a8f9c;
+  --on-ink: #ffffff;
+  --surface: #f2f3f6;
+  --surface-raised: #ffffff;
+  --surface-sunk: #e9ebf0;
+  --line: #e3e5ea;
+  --blue: #2e6af0;
+  --blue-glow: #5d8dff;
+  --blue-ink: #1a4fc4;
+  --blue-soft: #e3ecff;
+  --on-blue: #ffffff;
+  --orange: #f26a1b;
+  --orange-ink: #b0430a;
+  --orange-soft: #fff0e6;
+  --sun: #ffc633;
+  --sun-soft: #fff6d6;
+  --green: #1f9d57;
+  --green-ink: #157a43;
+  --green-soft: #e3f6ea;
+  --red: #c8302a;
+  --red-soft: #fdeceb;
+  --lilac: #e9e2ff;
+  --skin-deep: #5a3522;
+  --skin-mid: #8b5634;
+  --skin-light: #b47549;
+  --skin-shade: #3d2316;
+
+  --font-text: "Lexend", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Lexend", system-ui, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 2px rgba(20, 24, 58, 0.04), 0 6px 20px rgba(20, 24, 58, 0.05);
+  --shadow-float: 0 12px 32px rgba(20, 24, 58, 0.18);
+  --shadow-blue: 0 10px 24px rgba(46, 106, 240, 0.30);
+  --shadow-none: none;
+
+  --tap-min: 56px;
+  --tap-key: 64px;
+  --icon-circle: 48px;
+  --icon: 24px;
+  --spot: 40px;
+  --avatar: 48px;
+  --icon-stroke: 1.75px;
+}
