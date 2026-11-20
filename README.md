@@ -14,12 +14,14 @@ cd kolo && npm install && npm run dev
 | `/app.html#/home` | Home: wallet balance, quick actions, ajo groups, floating tab bar |
 | `/app.html#/group` | Group: this month's pot, Pay ₦5,000, turns this year |
 | `/app.html#/receipt/<status>` | Transfer receipt: `processing`, `delayed`, `successful`, `failed`, `refunded`, `review` |
-| `/app.html#/pdf/<status>` | A4 receipt (what "Download PDF" produces; prints to one page) |
+| `/app.html#/pdf/<status>` | A4 receipt preview: the layout that "Download PDF" and "Share" export |
 | `/app.html#/email/<e1…e6>` | Transfer status emails, with inbox preview |
 
 Flow: Ready → Home → a group card or "Pay ajo" → Group → "Pay ₦5,000" → receipt. On the receipt, PDF and email pages, a bar at the top switches the status or template, like the design's Tweaks panel.
 
 Home and Group follow the AppScreens reference screens in the Kolo design system, which is newer than the canvas's Home artboard.
+
+On the receipt, **Download PDF** saves a one-page A4 PDF and **Share** shares a PNG of the same receipt through the phone's share sheet, or downloads it where sharing isn't available (most desktop browsers). Both are made in the browser (`src/app/exportReceipt.tsx`, using html-to-image and jsPDF), and the PDF is a picture of the page, so its text can't be selected.
 
 ## Design system
 

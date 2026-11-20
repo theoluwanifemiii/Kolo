@@ -1,13 +1,32 @@
+import { useState } from 'react';
 import { RECEIPT, REFERENCE, SESSION_ID, type TransferStatus } from './data';
+import { downloadReceiptPdf, shareReceiptImage } from './exportReceipt';
 import { Icon, StepDot, solidAfter } from './Tracker';
+
+type Busy = null | 'share' | 'pdf';
 
 function copy(text: string) {
   void navigator.clipboard?.writeText(text);
 }
 
 /** In-app transfer receipt (Kolo v2), one layout for all six statuses. */
-export function Receipt({ status, onDownloadPdf }: { status: TransferStatus; onDownloadPdf?: () => void }) {
+export function Receipt({ status }: { status: TransferStatus }) {
   const d = RECEIPT[status];
+  const [busy, setBusy] = useState<Busy>(null);
+  const [error, setError] = useState(false);
+
+  const run = (kind: Exclude<Busy, null>, task: (s: TransferStatus) => Promise<void>) => async () => {
+    setBusy(kind);
+    setError(false);
+    try {
+      await task(status);
+    } catch (err) {
+      console.error(err);
+      setError(true);
+    } finally {
+      setBusy(null);
+    }
+  };
   return (
     <main className="kolo-receipt">
       <header className="kl-topbar">
@@ -109,9 +128,18 @@ export function Receipt({ status, onDownloadPdf }: { status: TransferStatus; onD
           <button className="kl-btn kl-btn--primary kl-btn--lg kl-btn--block" type="button"><Icon name="rotate" />Send again</button>
         )}
         <div className="kl-receipt__btns">
-          <button className="kl-btn kl-btn--white" type="button" style={{ padding: '0 16px' }}><Icon name="share" />Share</button>
-          <button className="kl-btn kl-btn--white" type="button" style={{ padding: '0 16px' }} onClick={onDownloadPdf}><Icon name="download" />Download PDF</button>
+          <button className="kl-btn kl-btn--white" type="button" style={{ padding: '0 16px' }} disabled={busy !== null} aria-busy={busy === 'share'} onClick={run('share', shareReceiptImage)}>
+            <Icon name="share" />{busy === 'share' ? 'Getting it ready…' : 'Share'}
+          </button>
+          <button className="kl-btn kl-btn--white" type="button" style={{ padding: '0 16px' }} disabled={busy !== null} aria-busy={busy === 'pdf'} onClick={run('pdf', downloadReceiptPdf)}>
+            <Icon name="download" />{busy === 'pdf' ? 'Getting it ready…' : 'Download PDF'}
+          </button>
         </div>
+        {error && (
+          <p role="alert" style={{ margin: 0, fontSize: 15, lineHeight: '20px', color: 'var(--red)', textAlign: 'center' }}>
+            We could not make your receipt. Please try again.
+          </p>
+        )}
         <button className="kl-btn kl-btn--white kl-btn--block" type="button"><Icon name="people" />Get help with this transfer</button>
       </section>
 

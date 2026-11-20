@@ -58,7 +58,7 @@ function App() {
     return (
       <>
         <Switcher view={view} variant={status} />
-        {view === 'receipt' ? <Receipt status={status} onDownloadPdf={() => go('pdf', status)} /> : <ReceiptPdf status={status} />}
+        {view === 'receipt' ? <Receipt status={status} /> : <ReceiptPdf status={status} />}
       </>
     );
   }

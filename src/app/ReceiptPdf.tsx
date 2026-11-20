@@ -49,7 +49,7 @@ export function ReceiptPdf({ status }: { status: TransferStatus }) {
           labels={d.track}
           states={d.states}
           labelStyle={() => ({ padding: '0 6px' })}
-          renderBelow={(i) => <span className="kolo-muted" style={{ fontSize: 13, lineHeight: '18px' }}>{d.pdf.times[i]}</span>}
+          renderBelow={(i) => <span className="kolo-muted" style={{ fontSize: 13, lineHeight: '18px', whiteSpace: 'nowrap' }}>{d.pdf.times[i]}</span>}
         />
       </section>
 
